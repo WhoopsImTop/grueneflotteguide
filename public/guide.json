@@ -9,8 +9,8 @@
         "description": "Die Fahrzeuge sind nach Distanz zu ihrem Standort sortiert. Wählen Sie ein Fahrzeug aus."
     },
     {
-        "img": "static/liste",
-        "title": "Fahrzeug auswählen",
-        "description": "Die Fahrzeuge sind nach Distanz zu ihrem Standort sortiert. Wählen Sie ein Fahrzeug aus."
+        "img": "static/buchen",
+        "title": "Buchen und Fahren",
+        "description": "Passendes Fahrzeug gefunden? Fahrzeug buchen und losfahren."
     }
 ]
