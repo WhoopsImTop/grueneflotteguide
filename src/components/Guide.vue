@@ -13,7 +13,7 @@
       <button @click="index--" :disabled="index == 0">zurück</button>
       
       <div class="dots">
-        <div class="dot" v-for="(dot, i) in guideData" :key="i" :class="i == index ? 'active' : ''"></div>
+        <div class="dot" v-for="(dot, i) in guideData" @click="index = i" :key="i" :class="i == index ? 'active' : ''"></div>
       </div>
 
       <button @click="index == guideData.length -1 ? (index = 0, emitCloseModal()) : index++">{{ index == guideData.length -1 ? "Los geht's" : "nächste" }}</button>
