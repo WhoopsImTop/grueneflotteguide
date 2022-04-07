@@ -1,46 +1,30 @@
 <template>
-  <div v-show="modal" class="guide-card" :class="darkmode ? 'dark' : ''" >
-    <div class="guide-card-image">
-      <img :src="darkmode ? guideData[index].img + '-dark.svg' : guideData[index].img + '.svg'" />
+  <div v-show="modal" class="welcomeguide-card" :class="darkmode ? 'dark' : ''" >
+    <div class="welcomeguide-card-image">
+      <img :src="darkmode ? 'static/logo-dark.png' : 'static/logo.png'" />
     </div>
-    <div class="guide-card-title">
-      <h2>{{ guideData[index].title }}</h2>
+    <div class="welcomeguide-card-title">
+      <h2>App Ansicht</h2>
     </div>
-    <div class="guide-card-content">
-      <p>{{ guideData[index].description }}</p>
+    <div class="welcomeguide-card-content">
+      <p>Jetzt würde es in der App weitergehen</p>
     </div>
-    <div class="guide-card-footer">
-      <button @click="index--" :disabled="index == 0">zurück</button>
-      
-      <div class="dots">
-        <div class="dot" v-for="(dot, i) in guideData" :key="i" :class="i == index ? 'active' : ''"></div>
-      </div>
-
-      <button @click="index == guideData.length -1 ? (index = 0, emitCloseModal()) : index++">{{ index == guideData.length -1 ? "Los geht's" : "nächste" }}</button>
+    <div class="welcomeguide-card-footer">
+        <button class="primary" @click="$emit('resetModals')">neustart</button>
     </div>
   </div>
 </template>
 
 <script>
-import readJsonData from '../helpers/readJsonData.js'
 export default {
-  name: 'GuideComponent',
-  props: ['modal'],
+  name: 'ResetModal',
+  props: ["modal"],
   data() {
     return {
-      index: 0,
-      guideData: [],
       darkmode: false,
     }
   },
-  methods: {
-    emitCloseModal() {
-      this.$emit('closeModal')
-    }
-  },
   beforeMount () {
-    this.guideData = readJsonData();
-    //check for device darkmode
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       this.darkmode = true;
     }
@@ -50,17 +34,17 @@ export default {
 
 <style>
 
-  .guide-card.dark {
+  .welcomeguide-card.dark {
     background-color: #222222;
   }
-  .dark .guide-card-title h2 {
+  .dark .welcomeguide-card-title h2 {
     color: #efefef;
   }
-  .dark .guide-card-content {
+  .dark .welcomeguide-card-content {
     color: #D1D1D1;
   }
 
-  .guide-card {
+  .welcomeguide-card {
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -70,10 +54,11 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
 
-  .guide-card-image {
-    height: 180px;
+  .welcomeguide-card-image {
+    height: 100px;
     margin-bottom: 30px;
     display: flex;
     flex-direction: column;
@@ -81,30 +66,23 @@ export default {
     align-items: center;
   }
 
-  .guide-card-title {
+  .welcomeguide-card-title {
     padding: 0;
     margin: 0;
     text-transform: uppercase;
     letter-spacing: 2px;
   }
 
-  .guide-card-divider {
-    margin: 15px 0 10px;
-    border: 1px solid #efefef;
-  }
-
-  .guide-card-content {
+  .welcomeguide-card-content {
     text-align: center;
     font-size: 16px;
     color: #444444;
-    height: 120px;
     margin-bottom: 20px;
   }
 
-  .guide-card-footer {
+  .welcomeguide-card-footer {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
     width: 100%;
   }
 
@@ -127,7 +105,10 @@ export default {
     width: 25px;
   }
 
-  button {
+  .welcomeguide-card-footer button {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 5px 0;
     border: none;
     outline: none;
     background-color: transparent;
@@ -135,6 +116,23 @@ export default {
     font-size: 14px;
     letter-spacing: 1px;
     font-family: Open-Sans, sans-serif;
+    text-transform: uppercase;
+  }
+
+  .primary {
+      background-color: #83BB26 !important;
+      color: #ffffff !important;
+      font-weight: bolder;;
+  }
+  
+  .secondary {
+      background-color: #efefef;
+      color: #353535;
+  }
+
+  .dark .secondary {
+    background-color: #353535;
+    color: #ffffff;
   }
 
   button:disabled {
@@ -150,4 +148,17 @@ export default {
     margin: 0;
     font-weight: bold;
   }
+
+  label {
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 0 0;
+  }
+
+  .dark label {
+      color: #D1D1D1;
+  }
+
 </style>
