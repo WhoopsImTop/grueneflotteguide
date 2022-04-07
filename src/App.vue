@@ -1,26 +1,24 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <GuideComponent/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import GuideComponent from './components/Guide.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    GuideComponent
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 97vh;
 }
 </style>

@@ -1,0 +1,16 @@
+[{
+        "img": "static/auswahl",
+        "title": "Standort auswählen",
+        "description": "Geben Sie ihre Adresse ein und eine Start- und Endzeit"
+    },
+    {
+        "img": "static/liste",
+        "title": "Fahrzeug auswählen",
+        "description": "Die Fahrzeuge sind nach Distanz zu ihrem Standort sortiert. Wählen Sie ein Fahrzeug aus."
+    },
+    {
+        "img": "static/liste",
+        "title": "Fahrzeug auswählen",
+        "description": "Die Fahrzeuge sind nach Distanz zu ihrem Standort sortiert. Wählen Sie ein Fahrzeug aus."
+    }
+]
