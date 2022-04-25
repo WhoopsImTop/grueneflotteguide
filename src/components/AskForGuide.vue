@@ -11,8 +11,7 @@
     </div>
     <div class="welcomeguide-card-footer">
         <button class="primary" @click="$emit('openModal')">Tour starten</button>
-        <button class="secondary" @click="$emit('closeAskModal')">Überspringen</button>
-        <label><input type="checkbox" v-model="showNextTime">Beim nächsten Start nicht mehr anzeigen</label>
+        <button class="secondary" @click="window.parent.postMessage('infoScreenFinished', '*')">Überspringen</button>
     </div>
   </div>
 </template>
@@ -24,7 +23,6 @@ export default {
   data() {
     return {
       darkmode: false,
-      showNextTime: false,
     }
   },
   beforeMount () {
